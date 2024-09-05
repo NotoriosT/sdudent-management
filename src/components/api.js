@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api'; // URL base para a API
+const API_URL = 'http://54.233.246.16:8080/api'; // URL base para a API
 
 // Função auxiliar para configurar o cabeçalho com o token JWT
 const getAuthHeader = () => {
