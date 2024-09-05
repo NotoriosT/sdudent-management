@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  react-app:
+    image: node:16
+    container_name: react_app
+    working_dir: /app
+    volumes:
+      - .:/app  # Mapeia o diretório atual para /app dentro do container
+      - /app/node_modules  # Evita problemas de permissão no node_modules
+    command: sh -c "npm install && npm run build && npx serve -s build -l 80"
+    ports:
+      - "80:80"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+    networks:
+      - backend
+
+networks:
+  backend:
